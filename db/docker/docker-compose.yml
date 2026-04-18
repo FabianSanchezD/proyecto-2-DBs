@@ -8,6 +8,8 @@ services:
       ACCEPT_EULA: 'Y'
     volumes:
       - mssql-data:/var/opt/mssql
+      - ../../xml:/seed:ro
+      - ../../scripts:/sql-scripts:ro
     env_file:
       - ../../.env
 
