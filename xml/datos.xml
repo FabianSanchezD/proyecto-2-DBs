@@ -76,7 +76,7 @@
   <Error>
     <error Codigo="50001" Descripcion="Username no existe"/>
     <error Codigo="50002" Descripcion="Password no existe"/>
-    <error Codigo="50003" Descripcion="Login deshabilitado"/>
+    <error Codigo="50003" Descripcion="Demasiados intentos de login, intente de nuevo dentro de 10 minutos."/>
     <error Codigo="50004" Descripcion="Empleado con ValorDocumentoIdentidad ya existe en inserción"/>
     <error Codigo="50005" Descripcion="Empleado con mismo nombre ya existe en inserción"/>
     <error Codigo="50006" Descripcion="Empleado con ValorDocumentoIdentidad ya existe en actualizacion"/>

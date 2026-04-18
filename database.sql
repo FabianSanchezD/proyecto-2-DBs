@@ -144,6 +144,7 @@ CREATE TABLE dbo.BitacoraEvento
     Descripcion NVARCHAR(MAX) NULL,
     IdPostByUser INT NULL,
     PostInIP NVARCHAR(45) NULL,
+    IntentoUsername NVARCHAR(200) NULL,
     PostTime DATETIME2(0) NOT NULL,
     CONSTRAINT PK_BitacoraEvento PRIMARY KEY CLUSTERED (Id),
     CONSTRAINT FK_BitacoraEvento_Tipo FOREIGN KEY (IdTipoEvento) REFERENCES dbo.TipoEvento (Id),
