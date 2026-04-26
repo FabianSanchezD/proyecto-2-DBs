@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(node_modules/.bin/tsc --noEmit -p apps/api/tsconfig.json)",
+      "Bash(npm install *)",
+      "Bash(../../node_modules/.bin/tsc --noEmit)",
+      "Bash(npm run *)",
+      "Bash(docker compose *)",
+      "Bash(docker exec *)",
+      "Bash(docker cp *)",
+      "Bash(curl -s http://localhost:4000)",
+      "Bash(curl *)",
+      "Bash(kill %1)",
+      "Bash(node *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'Total: {len\\(d[\\\\\"items\\\\\"]\\)} tipos'\\); [print\\(f'  {t[\\\\\"Nombre\\\\\"]} \\({t[\\\\\"TipoAccion\\\\\"]}\\)'\\) for t in d['items']]\")"
+    ]
+  }
+}
