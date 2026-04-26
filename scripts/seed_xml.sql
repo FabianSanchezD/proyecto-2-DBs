@@ -6,15 +6,12 @@ GO
 USE vacation_control;
 GO
 
-DECLARE @Bin VARBINARY(MAX);
+DECLARE @xml XML;
 
 SELECT
-    @Bin = x.BulkColumn
+    @xml = CAST(x.BulkColumn AS XML)
 FROM
-    OPENROWSET(BULK N'/seed/datos.xml', SINGLE_BLOB) AS x; -- se pone /seed porque así se puso en el docker-compose.yml
-
-DECLARE @XmlText NVARCHAR(MAX) = CONVERT(NVARCHAR(MAX), @Bin, 65001);
-DECLARE @xml XML = CAST(@XmlText AS XML);
+    OPENROWSET(BULK N'/seed/datos.xml', SINGLE_BLOB) AS x; -- /seed montado en docker-compose.yml
 
 DELETE FROM dbo.Movimiento;
 DELETE FROM dbo.BitacoraEvento;
