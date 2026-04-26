@@ -23,6 +23,8 @@ function MovimientosContent() {
   const params = useSearchParams();
   const employeeId = Number(params.get('id') ?? '0');
   const employeeName = params.get('name') ?? '';
+  const employeeDocId = params.get('docId') ?? '';
+  const employeeSaldo = params.get('saldo') ?? '';
 
   const [movimientos, setMovimientos] = useState<Movimiento[]>([]);
   const [tipos, setTipos] = useState<TipoMovimiento[]>([]);
@@ -73,6 +75,10 @@ function MovimientosContent() {
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Movimientos</h1>
           <p className="mt-1 text-sm text-zinc-600">{decodeURIComponent(employeeName)}</p>
+          <div className="mt-1 flex gap-4 text-xs text-zinc-500">
+            {employeeDocId && <span>Cédula: <span className="font-medium text-zinc-700">{decodeURIComponent(employeeDocId)}</span></span>}
+            {employeeSaldo !== '' && <span>Saldo vacaciones: <span className="font-medium text-zinc-700">{Number(employeeSaldo).toFixed(2)}</span></span>}
+          </div>
         </div>
         <div className="flex gap-2">
           <button onClick={() => setShowInsert(true)} className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800">
@@ -126,6 +132,9 @@ function MovimientosContent() {
       {showInsert && (
         <InsertMovimientoModal
           employeeId={employeeId}
+          employeeName={decodeURIComponent(employeeName)}
+          employeeDocId={decodeURIComponent(employeeDocId)}
+          employeeSaldo={employeeSaldo}
           tipos={tipos}
           onClose={() => setShowInsert(false)}
           onSuccess={() => { setShowInsert(false); fetchMovimientos(); }}
@@ -137,11 +146,17 @@ function MovimientosContent() {
 
 function InsertMovimientoModal({
   employeeId,
+  employeeName,
+  employeeDocId,
+  employeeSaldo,
   tipos,
   onClose,
   onSuccess,
 }: {
   employeeId: number;
+  employeeName: string;
+  employeeDocId: string;
+  employeeSaldo: string;
   tipos: TipoMovimiento[];
   onClose: () => void;
   onSuccess: () => void;
@@ -186,6 +201,24 @@ function InsertMovimientoModal({
           <h2 className="text-lg font-semibold text-zinc-900">Insertar movimiento</h2>
           <button onClick={onClose} className="text-zinc-400 hover:text-zinc-600 text-xl leading-none">&times;</button>
         </div>
+        <dl className="mb-4 space-y-1 rounded-lg bg-zinc-50 border border-zinc-200 px-4 py-3 text-sm">
+          {employeeDocId && (
+            <div className="flex justify-between">
+              <dt className="text-zinc-500">Cédula</dt>
+              <dd className="font-medium text-zinc-800">{employeeDocId}</dd>
+            </div>
+          )}
+          <div className="flex justify-between">
+            <dt className="text-zinc-500">Nombre</dt>
+            <dd className="font-medium text-zinc-800">{employeeName}</dd>
+          </div>
+          {employeeSaldo !== '' && (
+            <div className="flex justify-between">
+              <dt className="text-zinc-500">Saldo vacaciones</dt>
+              <dd className="font-medium text-zinc-800">{Number(employeeSaldo).toFixed(2)}</dd>
+            </div>
+          )}
+        </dl>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
             <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">{error}</div>

@@ -92,7 +92,9 @@ export default function EmployeesPage() {
   }
 
   function navigateMovements(emp: Empleado) {
-    router.push(`/employees/movements?id=${emp.Id}&name=${encodeURIComponent(emp.Nombre)}`);
+    router.push(
+      `/employees/movements?id=${emp.Id}&name=${encodeURIComponent(emp.Nombre)}&docId=${encodeURIComponent(emp.ValorDocumentoIdentidad)}&saldo=${emp.SaldoVacaciones}`
+    );
   }
 
   return (
