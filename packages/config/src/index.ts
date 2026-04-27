@@ -1,6 +1,6 @@
 /**
- * Minimal shared config helpers for clients and tooling.
- * NestJS apps should still use @nestjs/config in the API.
+ * Utilidades mínimas compartidas de configuración
+ * Las apps de NestJS deben seguir usando @nestjs/config en el API
  */
 
 export interface DatabaseEnv {
@@ -21,7 +21,7 @@ export function readEnv(key: string): string | undefined {
 export function requireEnv(key: string): string {
   const value = readEnv(key);
   if (value === undefined || value === '') {
-    throw new Error(`Missing required environment variable: ${key}`);
+    throw new Error(`Falta la env: ${key}`);
   }
   return value;
 }

@@ -1,9 +1,9 @@
-# Dependencies
+# Dependencias
 node_modules
 .pnp
 .pnp.js
 
-# Build / cache
+# Compilación
 .next
 out
 dist
@@ -11,19 +11,19 @@ build
 .turbo
 *.tsbuildinfo
 
-# Env
+# Entorno
 .env
 .env.local
 .env.*.local
 
-# Debug / IDE
+# IDE
 .DS_Store
 *.log
 .idea
 .vscode
 
-# Testing
+# Pruebas
 coverage
 
-# Misc
+# Varios
 *.pem

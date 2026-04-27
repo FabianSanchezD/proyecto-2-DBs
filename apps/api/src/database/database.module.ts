@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { DatabaseService } from './database.service';
 
 /**
- * Placeholder for SQL Server access via stored procedures (no ORM).
+ * Módulo base para acceso a SQL Server mediante procedimientos almacenados (sin ORM).
  */
 @Global()
 @Module({

@@ -1,4 +1,4 @@
-# Agent Context — Guardrails, Exceptions, Anti-Patterns, and Project Plan
+# Contexto del Agente — Controles, Excepciones, Anti-Patrones y Plan del Proyecto
 ## Proyecto: Control de Vacaciones
 ### Stack definido
 - Frontend: Next.js

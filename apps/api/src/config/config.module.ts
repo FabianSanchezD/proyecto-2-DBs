@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 /**
- * Confirguración global de environment variables
+ * Configuración global de variables de entorno
  * Carga el .env desde cualquier directorio para todo el proyecto
  */
 @Module({

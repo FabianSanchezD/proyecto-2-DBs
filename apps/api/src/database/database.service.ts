@@ -82,9 +82,9 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
     this.pool = new sql.ConnectionPool(poolConfig);
     try {
       await this.pool.connect();
-      this.logger.log('SQL Server pool connected.');
+      this.logger.log('Pool de SQL Server conectado.');
     } catch (err) {
-      this.logger.error('SQL Server connection failed', err instanceof Error ? err.stack : err);
+      this.logger.error('Falló la conexión a SQL Server', err instanceof Error ? err.stack : err);
       await this.pool.close().catch(() => undefined);
       this.pool = null;
     }
