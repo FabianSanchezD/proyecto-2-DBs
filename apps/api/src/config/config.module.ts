@@ -2,14 +2,14 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 /**
- * Global environment configuration.
- * Loads `.env` / `.env.local` from the api app cwd (repo root when run via turbo).
+ * Confirguración global de environment variables
+ * Carga el .env desde cualquier directorio para todo el proyecto
  */
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['.env.local', '.env'],
+      envFilePath: ['.env.local', '.env', '../../.env.local', '../../.env'],
       expandVariables: true,
     }),
   ],
